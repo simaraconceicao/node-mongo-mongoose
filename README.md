@@ -5,6 +5,11 @@
 <br>
 <br>
 
+# Extra +1 CRUD MongoDB com "relacionamento" em outros 5 dias, rs
+
+**Fiz mais 1 CRUD MongoDB, dessa vez com "relacionamento", ao longo de 5 dias**
+
+
 ## 1. Apresentação
 
 Prazer, Simara Conceição! 
@@ -49,6 +54,7 @@ Resumo de cada CRUD:
 - Terceiro: Cadastro de filmes
 - Quarto: Cadastro de livros
 - Quinto: Cadastro de séries
+- Sexto: Cadastro de estudios e títulos 
 
 
 ### 4.1 Ferramentas usadas 
@@ -197,6 +203,23 @@ createdAt: {
         default: new Date
     }
 ```
+- Sexto: Cadastro de estudios e títulos
+```
+Dados para Collection Estudios
+
+- id: autogerado e obrigatório
+- nome: texto e obrigatório
+- criadoEm: data gerada automaticamente e obrigatório
+
+Dados para Collection Titulos
+
+- id: autogerado e obrigatório
+- nome: texto e obrigatório
+- genero: texto e obrigatório
+- descricao: texto e obrigatório
+- criadoEm: data gerada automaticamente e obrigatório
+- estudio: referencia do estudio cadastrado previamente obrigatório
+```
 
 ### 4.5 Arquitetura
 
@@ -235,6 +258,37 @@ createdAt: {
 #### 📂Data
 > Criou a configuração de conexão com o banco.
 
+`- Projetos 6`
+
+```
+ 📁 FavMovies
+   |
+   |-  📁 src
+   |    |
+   |    |- 📁 data
+   |         |- 📄 database.js
+   |
+   |    |- 📁 controllers
+   |         |- 📄 tituloController.js
+   |         |- 📄 estudioController.js
+   |
+   |    |- 📁 models
+   |         |- 📄 titulo.js
+   |         |- 📄 estudio.js
+   |
+   |    |- 📁 routes
+   |         |- 📄 tituloRoutes.js 
+   |         |- 📄 estudioRoutes.js 
+   |
+   |
+   |- 📄 .env
+   |- 📄 .env.example
+   |- 📄 .gitignore
+   |- 📄 package
+   |- 📄 server.js
+
+```
+
 <br>
 <br>
 
@@ -246,7 +300,12 @@ A ideia original desses projetinhos foram retiradas desse tutorial do canal Web 
 
 *[Build A REST API With Node.js, Express, & MongoDB - Quick](https://www.youtube.com/watch?v=fgTGADljAeg)*
 
-Eu fiz o projeto 1 acompanhando o tutorial dele e a partir do projeto 2 fui implementando e modificando conforme meu repertório ia deixando, rs.
+Já a parte de relacionamento, eu me inspirei nesse vídeo aqui da Rocketseat. Valeuu, Diego!rs
+
+*[API NodeJS + Express + Mongo - CRUD e relacionamentos com MongoDB|Diego Fernandes](https://www.youtube.com/watch?v=GAZdUyIV3ms)*
+
+
+Eu fiz o projeto 1 acompanhando o tutorial do Kyle e a partir do projeto 2 fui implementando e modificando conforme meu repertório ia deixando, rs.
 
 Para ter embasamento teórico assisti aulas de de data driven, aulas de conceitos, mapa mental sobre tipos de bancos de dados. Aqui está um comparativo entre SQL e NoSQL:
 
@@ -316,9 +375,7 @@ Além disso, compartilhar é uma troca linda e eu sempre aprendo muito com essas
 
 - Quero me aventurar com infra e fazer o deploy de algum CRUD, permitindo de forma pública as integrações.
 
-- Implementar uma estratégia de testes para um CRUD
-
-- Quero experimentar modelar dados que se 'relacionam' usando mongo. É óbvio que não será um banco de dados relacional, mas nossos documentos podem gerar essa conversa entre eles. 
+- Implementar uma estratégia de testes para o CRUD
 
 ---
 ## Simara Conceição
